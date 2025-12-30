@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Kosugi&family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ここにあったSVGアニメーションのスタイルは削除されました */
+    </style>
+  </head>
+
+  <body class="kosugi-regular bg-light">
+    <header>
+      <nav class="navbar fixed-top py-0">
+        <div class="container py-0 px-3">
+          <a class="navbar-brand py-3" href="#">
+            <img src="img/logo.svg" alt="ロゴ" style="height: 40px" />
+          </a>
+
+          <div class="ms-auto">
+            <div
+              class="d-none d-md-flex align-items-center gap-4 kosugi-regular smallFont"
+            >
+              <a href="#" class="nav-link text-dark"
+                ><i class="bi bi-sun me-1"></i>会社概要</a
+              >
+              <a href="#" class="nav-link text-dark"
+                ><i class="bi bi-droplet me-1"></i>サービス</a
+              >
+              <a href="#" class="nav-link text-dark"
+                ><i class="bi bi-envelope me-1"></i>お問い合わせ</a
+              >
+              <a href="#" class="nav-link text-dark"
+                ><i class="bi bi-tree me-1"></i>エコログ</a
+              >
+            </div>
+
+            <button
+              id="hamburger-btn"
+              class="custom-toggler d-md-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#menu-offcanvas"
+              aria-controls="menu-offcanvas"
+              aria-label="メニューを開閉する"
+            >
+              <span id="menu-text">MENU</span>
+              <div class="icon-bars">
+                <span class="line-1"></span>
+                <span class="line-2"></span>
+                <span class="line-3"></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="offcanvas offcanvas-end w-100 border-0"
+      tabindex="-1"
+      id="menu-offcanvas"
+      aria-labelledby="menu-offcanvas-label"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="menu-offcanvas-label"></h5>
+      </div>
+      <div
+        class="offcanvas-body d-flex justify-content-center align-items-center"
+      >
+        <ul class="nav flex-column text-center gap-4 kosugi-regular">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark">会社概要</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark">サービス</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark">お問い合わせ</a>
+          </li>
+          <li class="nav-item mt-3">
+            <a href="#" class="btn btn-primary btn-lg">エコブログ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="mv" class="p-5 mb-5 px-0 bgEarth">
+      <div
+        class="container mb-5 py-5 px-3 text-shadow-sm text-center noto-serif-jp-bold"
+      >
+        <h1 class="mb-4 textBox">
+          <p class="d-block d-md-inline mb-1 txt1">
+            みんな<span class="smallFont2">で</span>
+          </p>
+          <p class="d-block d-md-inline mb-1 txt2">
+            地球<span class="smallFont2">を</span>まもる
+          </p>
+          <p class="d-block txt3">
+            意識<span class="smallFont2">を</span>つなぐ
+          </p>
+          <p class="colorWht caprasimo-regular txt4">
+            Protecting the Earth. Inspiring the Future.
+          </p>
+        </h1>
+      </div>
+    </section>
+
+    <section id="earthSvg">
+      <div class="container-fluid">
+        <div class="leaf d-flex flex-column align-items-center gap-2 lts mb-4">
+          <h2 class="js-scroll-trigger">
+            <span class="caprasimo-regular"
+              >M<span class="colorGrn">e</span>ssage</span
+            >
+          </h2>
+        </div>
+        <div class="row">
+          <div class="px-4 px-md-0 col-12 col-md-10 offset-md-1 mb-5">
+            <div class="col-md-8 offset-md-2 mb-5">
+              <div class="text-start Arial fadeIn js-scroll-trigger oval-text">
+                <p>
+                  人と人、地球と私たち。かけがえのないつながりを育み、心豊かな未来を実現するため、私たちは日々挑戦を続けています。
+                </p>
+                <p>
+                  身体の健康に寄与する製品を通じて、一人でも多くの笑顔を増やし、いずれは世界中へと幸せの輪を広げてたい。
+                </p>
+                <p>
+                  この星とともに生きる喜びを胸に、持続可能な社会を信じ、あなたと共に新たな価値を創造していく。
+                </p>
+                <p>それは、あなたと分かち合う、私たちのミッションです。</p>
+              </div>
+            </div>
+
+            <div id="bgPic" class="col-12">
+              <img src="img/people01.svg" alt="" class="people img1" />
+              <img src="img/people02.svg" alt="" class="people img2" />
+              <img src="img/people03.svg" alt="" class="people img3" />
+              <img src="img/people04.svg" alt="" class="people img4" />
+              <img src="img/yama.svg" alt="" class="people img5" />
+              <img src="img/kumo.svg" alt="" class="people img6" />
+              <img src="img/sun.svg" alt="" class="people img7" />
+            </div>
+          </div>
+</div>
+<div class="row py-3 py-md-5">   
+    <div class="col-md-1"></div>
+          <div class="col-md-6 px-4 px-md-0">
+            <h3
+              class="text-center text-sm-start mb-4 mb-sm-4 kosugi-regular js-scroll-trigger"
+            >
+              <span class="d-block mb-1">自然とともに生き、</span
+              ><span class="d-block">次世代につなぎ、未来への道を照らす</span>
+            </h3>
+            <div class="Arial fadeIn js-scroll-trigger">
+              <p>
+                すべての子どもたち、そして多くの人々に、もっと自然と調和した生き方や明るい未来を届けたい。
+              </p>
+              <p>
+                その想いから、「自然とともに生き、次世代につなぎ、未来への道を照らす」を理念に、株式会社八栄を立ち上げました。
+              </p>
+
+              <div class="text-end text-md-start">
+                <a href="#" class="read-more-link mb-3">
+                  <span>READ MORE</span>
+                  <img src="img/arrow.svg" alt="矢印" class="arrow-icon" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="px-5 px-md-0">
+              <img src="img/3point.svg" class="w-100" alt="" />
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          
+        </div>
+      </div>
+
+      <div class="earth-wrap">
+        <div class="container pt-2 px-4 px-md-0">
+          <div class="row mb-5"></div>
+        </div>
+      </div>
+      <!--追加-->
+    </section>
+
+    <section id="column" class="pt-5 pb-5">
+      <div class="container py-4 px-4 px-md-0">
+        <div class="d-flex flex-column align-items-center gap-2 mb-5 lts">
+          <h2 class="js-scroll-trigger">
+            <span class="caprasimo-regular"
+              >E<span class="colorGrn">c</span>olog</span
+            >
+          </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card blog-card">
+              <div class="ratio ratio-4x3">
+                <img
+                  src="img/sample1.jpg"
+                  class="card-img-top object-fit-cover"
+                  alt="ブログ画像"
+                />
+              </div>
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-primary">カテゴリ名</span>
+                  <small class="text-muted">2025/06/10</small>
+                </div>
+                <h3 class="card-title mb-3">これは記事のタイトルです</h3>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >続きを読む</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card blog-card">
+              <div class="ratio ratio-4x3">
+                <img
+                  src="img/sample1.jpg"
+                  class="card-img-top object-fit-cover"
+                  alt="ブログ画像"
+                />
+              </div>
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-primary">カテゴリ名</span>
+                  <small class="text-muted">2025/06/10</small>
+                </div>
+                <h3 class="card-title mb-3">これは記事のタイトルです</h3>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >続きを読む</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card blog-card">
+              <div class="ratio ratio-4x3">
+                <img
+                  src="img/sample1.jpg"
+                  class="card-img-top object-fit-cover"
+                  alt="ブログ画像"
+                />
+              </div>
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="badge bg-primary">カテゴリ名</span>
+                  <small class="text-muted">2025/06/10</small>
+                </div>
+                <h3 class="card-title mb-3">これは記事のタイトルです</h3>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >続きを読む</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="news">
+     <div class="container py-4 px-4 px-md-0">
+    <div class="leaf d-flex flex-column align-items-center gap-2 lts mb-4">
+          <h2 class="js-scroll-trigger">
+            <span class="caprasimo-regular"
+              >N<span class="colorGrn">e</span>ws</span
+            >
+          </h2>
+        </div>
+    </div>
+</section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // ページの読み込みが完了してからスクリプトを実行
+      window.addEventListener("DOMContentLoaded", () => {
+        // 1. 基本的な要素の取得
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const menuText = document.getElementById("menu-text");
+        const menuOffcanvasElement = document.getElementById("menu-offcanvas");
+        const navbar = document.querySelector(".navbar");
+
+        // 2. Bootstrap Offcanvasメニューのイベント処理
+        if (menuOffcanvasElement) {
+          menuOffcanvasElement.addEventListener("show.bs.offcanvas", () => {
+            hamburgerBtn.classList.add("active");
+            menuText.textContent = "CLOSE";
+            navbar.classList.add("menu-is-open");
+          });
+
+          menuOffcanvasElement.addEventListener("hide.bs.offcanvas", () => {
+            hamburgerBtn.classList.remove("active");
+            menuText.textContent = "MENU";
+            navbar.classList.remove("menu-is-open");
+          });
+        }
+
+        // GSAPとScrollTriggerの登録は一度でOK
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 4-1. ヘッダーの背景色変更
+        ScrollTrigger.create({
+          trigger: "body",
+          start: "top -100px", // 100pxスクロールしたら
+          end: "bottom top",
+          toggleClass: { targets: navbar, className: "activeHeader" },
+        });
+
+        // 4-2. 画面内に入った要素に 'active' クラスを付与
+        const scrollTargets = gsap.utils.toArray(".js-scroll-trigger");
+        scrollTargets.forEach((target) => {
+          ScrollTrigger.create({
+            trigger: target,
+            start: "top 85%",
+            toggleClass: "active",
+            once: true,
+          });
+        });
+
+        // #earthSvg の表示を制御（スクロール連動でふわっと表示）
+        gsap.fromTo(
+          "#earthSvg",
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 2.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "#earthSvg",
+              start: "top 50%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        // .treeBg クラスのアニメーション
+        gsap.fromTo(
+          ".treeBg",
+          { x: "100%", opacity: 0 },
+          {
+            x: "0%",
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".treeBg",
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        // ==== ここから .oval の擬似要素に関連する修正 ====
+        // .oval セクションをトリガーにする
+        const ovalSection = document.querySelector(".oval");
+
+        if (ovalSection) {
+          // .oval 自体を上下に少し動かすことで、擬似要素が動いているように見せる
+          // 右上の円の動き (少し速く、逆方向に動かすなど調整)
+          gsap.to(ovalSection, {
+            y: -50, // 上に50px動かす (擬似要素が上に動いているように見える)
+            ease: "none",
+            scrollTrigger: {
+              trigger: ovalSection,
+              start: "top bottom", // .ovalが画面下端に入ったときに開始
+              end: "bottom top", // .ovalが画面上端から出たときに終了
+              scrub: true, // スクロールに連動
+            },
+          });
+
+          // 左下の円の動き (少しゆっくり、順方向に動かすなど調整)
+          // ovalSectionのクローンを使って異なる動きを表現することもできるけど、
+          // 今回はovalSection自体を動かすので、別々の擬似要素を動かすのは難しい。
+          // 擬似要素にアニメーションを適用するにはCSSの@keyframesが適切だよ。
+
+          // もし本当に個別にパララックスさせたい場合は、擬似要素ではなく
+          // HTML内にダミーのdiv要素を配置して、それにスタイルとGSAPを適用する必要がある。
+        }
+        // ==== .oval 関連の修正ここまで ====
+
+        // 4-3. 波のアニメーション (既存のコード)
+        const wave1 = document.getElementById("wave1");
+        const wave2 = document.getElementById("wave2");
+
+        if (wave1 && wave2) {
+          const wave1Paths = [
+            "M 0,400 L 0,250 C 195,259 391,268 558,254 C 725,240 864,203 1006,174 C 1148,145 1294,122 1440,100 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,250 C 140,263 279,276 435,263 C 591,250 762,210 932,179 C 1102,147 1271,123 1440,100 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,250 C 203,241 407,233 560,222 C 713,211 816,198 954,177 C 1092,156 1266,128 1440,100 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,250 C 129,255 259,260 436,243 C 613,226 839,186 1014,158 C 1189,130 1315,115 1440,100 L 1440,400 L 0,400 Z",
+          ];
+
+          const wave2Paths = [
+            "M 0,400 L 0,383 C 143,358 285,333 460,333 C 635,333 841,359 1010,347 C 1179,335 1309,284 1440,233 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,383 C 124,366 247,348 434,340 C 621,332 871,333 1049,317 C 1227,301 1334,267 1440,233 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,383 C 188,366 377,349 544,347 C 711,345 857,358 1003,342 C 1149,326 1294,279 1440,233 L 1440,400 L 0,400 Z",
+            "M 0,400 L 0,383 C 128,364 257,344 433,340 C 609,336 833,346 1009,331 C 1185,316 1312,274 1440,233 L 1440,400 L 0,400 Z",
+          ];
+
+          const createWaveTimeline = (element, paths) => {
+            const tl = gsap.timeline({ repeat: -1 });
+            paths.forEach((path) => {
+              tl.to(element, {
+                duration: 1,
+                attr: { d: path },
+                ease: "linear",
+              });
+            });
+          };
+
+          createWaveTimeline(wave1, wave1Paths);
+          createWaveTimeline(wave2, wave2Paths);
+        }
+      });
+    </script>
+  </body>
+</html>
