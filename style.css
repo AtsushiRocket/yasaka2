@@ -1,0 +1,639 @@
+@charset "UTF-8";
+/*============================
+common
+============================*/
+html {
+  font-size: calc((100vw - 320px) / 140 + 12px);
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.05em; /* ここで字間を調整 */
+}
+
+.Arial {
+  font-family: Arial;
+}
+
+.kosugi-regular {
+  font-family: "Kosugi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.noto-serif-jp-bold {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.caprasimo-regular {
+  font-family: "Caprasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-radius {
+  border-top-right-radius: 2rem; /* 左上 */
+  border-bottom-left-radius: 2rem; /* 右下 */
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}
+
+/*半透明ブラー背景*/
+.blur-background {
+  background-color: rgba(255, 255, 255, 0.5); /* 半透明の白 (R, G, B, 透明度) */
+  backdrop-filter: blur(10px); /* 10pxのぼかし */
+  -webkit-backdrop-filter: blur(10px); /* Safari対応のためのプレフィックス */
+}
+
+/*テキスト点の下線*/
+.dotted-underline {
+  text-decoration: none; /* デフォルトの下線を消す */
+  border-bottom: 2px dotted gray; /* 点線の下線 */
+  text-underline-offset: 3px;
+  -webkit-text-underline-offset: 3px;
+}
+
+/*矢印リンク*/
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* テキストと矢印の間隔 */
+  text-decoration: none;
+  color: #000; /* 必要に応じて色指定 */
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.read-more-link:hover .arrow-icon {
+  transform: translateX(6px);
+  transition: transform 0.2s ease;
+}
+
+.arrow-icon {
+  width: 2rem;
+  height: auto;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h2.js-scroll-trigger, h3.js-scroll-trigger {
+  clip-path: inset(0 100% -20% 0);
+  transition: clip-path 2s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: 0s;
+}
+h2.active, h3.active {
+  clip-path: inset(-20px -60px 0% 0px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn.js-scroll-trigger {
+  opacity: 0;
+}
+.fadeIn.js-scroll-trigger.active {
+  animation: fadeIn 1.5s ease-in-out 0.5s forwards;
+}
+
+.smallFont {
+  font-size: 0.8rem;
+}
+
+.smallFont2 {
+  font-size: 70%;
+  vertical-align: middle;
+  padding-left: 7px;
+}
+
+.gradient-box {
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 154, 158, 0.8), rgba(250, 208, 196, 0.8));
+  border-radius: 8px;
+  padding: 0.5em;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.lts {
+  letter-spacing: 0.2rem;
+}
+
+/*============================
+#header
+============================*/
+.navbar {
+  z-index: 1050;
+  transition: background-color 0.3s ease-in-out;
+}
+.navbar.menu-is-open {
+  background-color: transparent !important;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  box-shadow: none !important;
+}
+
+.custom-toggler {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #212529;
+  transition: color 0.3s;
+}
+.custom-toggler:hover {
+  color: #0d6efd;
+}
+.custom-toggler #menu-text {
+  font-size: 0.6rem;
+}
+.custom-toggler .icon-bars span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease-in-out;
+}
+.custom-toggler .icon-bars span:not(:last-child) {
+  margin-bottom: 5px;
+}
+.custom-toggler.active .icon-bars .line-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+.custom-toggler.active .icon-bars .line-2 {
+  opacity: 0;
+}
+.custom-toggler.active .icon-bars .line-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.offcanvas {
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  transform: none;
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0;
+}
+.offcanvas.show {
+  opacity: 1;
+}
+.offcanvas.show .offcanvas-body ul li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.offcanvas.show .offcanvas-body ul li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.offcanvas.show .offcanvas-body ul li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.offcanvas.show .offcanvas-body ul li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.offcanvas.show .offcanvas-body ul li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.offcanvas.show .offcanvas-body ul li:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.offcanvas-body ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.offcanvas-body .nav-link {
+  font-size: 1.875rem; /* 3xl相当 */
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .offcanvas-body .nav-link {
+    font-size: 2.25rem; /* 4xl相当 */
+  }
+}
+
+/*============================
+#mv
+============================*/
+section#mv {
+  position: relative;
+  overflow: hidden;
+  min-height: 700px; /* ここを調整しても良いかも */
+  animation: revealEllipse 1s ease-out forwards;
+  clip-path: ellipse(80% 100% at 50% 0%);
+  background-color: transparent; /* ここを透明にする */
+}
+section#mv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/mvsky4.jpg);
+  background-size: cover;
+  background-position: center 100%;
+  filter: blur(8px);
+  animation: blurOut 3.5s ease-out forwards;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  section#mv {
+    min-height: 600px; /* ここを調整しても良いかも */
+    animation: revealEllipseMobile 1s ease-out forwards;
+  }
+  section#mv::before {
+    background-image: url(img/mvsky4.jpg);
+    background-size: cover;
+    background-position: center 80%;
+  }
+}
+@keyframes revealEllipse {
+  0% {
+    clip-path: ellipse(70% 90% at 50% 0%);
+  }
+  100% {
+    clip-path: ellipse(80% 100% at 50% 0%);
+  }
+}
+@keyframes revealEllipseMobile {
+  0% {
+    clip-path: ellipse(50% 60% at 50% 0%);
+  }
+  100% {
+    clip-path: ellipse(130% 100% at 50% 0%);
+  }
+}
+section#mv h1 {
+  /*font-weight: 800;*/
+}
+section#mv .textBox .txt1, section#mv .textBox .txt2, section#mv .textBox .txt3, section#mv .textBox .txt4 {
+  opacity: 0;
+  animation: slideAnime 2s ease forwards;
+}
+section#mv .textBox .txt1 {
+  animation-delay: 0.2s;
+}
+section#mv .textBox .txt2 {
+  animation-delay: 0.8s;
+}
+section#mv .textBox .txt3 {
+  animation-delay: 1s;
+}
+section#mv .textBox .txt4 {
+  animation-delay: 1.2s;
+}
+section#mv .textBox .txt4 {
+  font-size: 1rem;
+}
+
+@keyframes blurOut {
+  from {
+    filter: blur(50px);
+    transform: scale(1.3);
+  }
+  to {
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+@keyframes slideAnime {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bgWht {
+  background-color: #ffffff;
+}
+
+.colorWht {
+  color: #ffffff;
+}
+
+.colorGrn {
+  color: #56B879;
+}
+
+.leaf {
+  padding: 16px 0;
+}
+
+h2 {
+  position: relative;
+  display: block;
+  z-index: 1;
+  margin: 0;
+}
+h2 span {
+  position: relative;
+  z-index: 1;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: -40px;
+  width: 50px;
+  height: 50px;
+  background-image: url(img/icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/*
+グラデーション
+*/
+.oval {
+  position: relative;
+  border-radius: 50%;
+}
+
+.oval h3, .oval-text {
+  position: relative;
+  z-index: 2;
+  color: #000;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.oval-text p {
+  line-height: 2;
+  margin-bottom: 0.5rem;
+}
+
+#bgPic {
+  position: relative;
+  height: 100px;
+}
+#bgPic .people {
+  position: absolute;
+}
+#bgPic .people.img1 {
+  width: 50px;
+  left: 0%;
+  bottom: -20%;
+  z-index: 2;
+}
+#bgPic .people.img2 {
+  width: 60px;
+  right: 0%;
+  bottom: -10%;
+  z-index: 2;
+}
+#bgPic .people.img3 {
+  width: 80px;
+  right: 10%;
+  bottom: 0%;
+  z-index: 2;
+}
+#bgPic .people.img4 {
+  width: 60px;
+  left: 10%;
+  bottom: 0%;
+  z-index: 2;
+}
+#bgPic .people.img5 {
+  width: 80vw;
+  top: 0%;
+  z-index: 1;
+}
+#bgPic .people.img6 {
+  width: 80vw;
+  top: -60%;
+  z-index: 0;
+}
+#bgPic .people.img7 {
+  width: 25px;
+  left: 30%;
+  top: -20%;
+  z-index: 0;
+}
+
+/*============================
+section#earthSvg に背景画像を設定
+============================*/
+section#earthSvg {
+  position: relative; /* 子要素のabsolute配置の基準にする */
+  overflow: hidden; /* はみ出しを隠す */
+  min-height: 120vh; /* 地球全体が見えるように十分な高さを確保（ビューポートの高さの120%） */
+  background-image: url("img/earth.svg"); /* ユーザー提供の地球画像パス */
+  background-size: 80% auto; /* 画像のサイズを調整（例: 親要素の80%幅） */
+  background-position: 60vh 120vh; /* 右方向に見切れるように調整！ */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* 画面スクロールに合わせて背景を固定 */
+  /* コンテンツが固定背景を覆い隠せるように、子要素に背景色を設定 */
+  /* スクロールでコンテンツが地球を覆う際の背景色 */
+}
+section#earthSvg .container, section#earthSvg .earth-wrap {
+  background-color: rgba(255, 255, 255, 0); /* 初期は透明 */
+  transition: background-color 0.5s ease-in-out; /* 背景色の変化を滑らかに */
+  position: relative; /* z-indexが効くように */
+  z-index: 2; /* 地球の背景より手前に表示 */
+}
+section#earthSvg.scrolled-over .container, section#earthSvg.scrolled-over .earth-wrap {
+  background-color: #f8f9fa; /* Bootstrapのbg-lightに近い色 */
+}
+@media (max-width: 992px) {
+  section#earthSvg { /* タブレット以下 */
+    background-size: 90% auto; /* より大きく表示 */
+    min-height: 100vh;
+    background-position: center 110vh; /* ここも調整！ */
+  }
+}
+@media (max-width: 768px) {
+  section#earthSvg { /* スマホ以下 */
+    background-size: 100% auto;
+    min-height: 120vh;
+    background-position: center 110vh; /* ここも調整！ */
+  }
+}
+
+@keyframes fillText {
+  0% {
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+  }
+  100% {
+    color: black;
+    -webkit-text-stroke: 0px black;
+  }
+}
+.circleAni.js-scroll-trigger, .mawaru.js-scroll-trigger {
+  clip-path: circle(0 at 50% 50%);
+  transition: clip-path 1s ease;
+}
+.circleAni.js-scroll-trigger.active, .mawaru.js-scroll-trigger.active {
+  clip-path: circle(100% at 50% 50%);
+}
+
+.pos1.circleAni.active {
+  transition-delay: 1s;
+}
+
+.pos2.circleAni.active {
+  transition-delay: 1s;
+}
+
+.pos3.circleAni.active {
+  transition-delay: 1s;
+}
+
+.mawaru {
+  transition-delay: 1.5s;
+}
+
+/*============================
+3つの特徴
+============================*/
+.triangle-layout {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  margin: auto;
+  /* 地球のSVGとアニメーションに関するCSSは削除済み */
+  /*
+  .mawaru{
+      width: 80px;
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateEarth 70s linear infinite;
+  }
+  */
+}
+.triangle-layout.js-scroll-trigger .circle {
+  animation: sequence-poyon 0.5s ease-out infinite;
+}
+.triangle-layout .circle {
+  position: absolute;
+  width: 50%;
+  aspect-ratio: 1/1;
+  background-color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0.5em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.triangle-layout .circle::after {
+  content: "";
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  width: 88%;
+  height: 88%;
+  border: 5px dotted rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+.triangle-layout .circle .num {
+  color: #56B879;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 3rem;
+  display: block;
+  margin-bottom: 0.1em;
+}
+.triangle-layout .circle p {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.triangle-layout .circle.pos1 {
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.triangle-layout .circle.pos2 {
+  bottom: 10%;
+  left: 0%;
+}
+.triangle-layout .circle.pos3 {
+  bottom: 10%;
+  right: 0%;
+}
+
+.treeBg {
+  /* 初期状態を画面右外に設定 */
+  transform: translateX(100%); /* 画面の右端より外に移動 */
+  opacity: 0; /* 最初は透明 */
+  will-change: transform, opacity; /* アニメーションのパフォーマンス最適化 */
+  /* 必要であれば、高さや幅、z-indexなどを設定 */
+  position: absolute; /* 配置を調整したい場合 */
+  right: 0; /* 右端に寄せる場合 */
+  bottom: 0; /* 下端に寄せる場合 */
+  background-image: url("img/tree.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*
+@keyframes rotateEarth {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+*/
+/*============================
+代表コラム
+============================*/
+#column {
+  background: #D0F4D0;
+}
+#column .object-fit-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+#column .card-title {
+  font-size: 1rem;
+}/*# sourceMappingURL=style.css.map */
